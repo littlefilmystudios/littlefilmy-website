@@ -1,0 +1,11 @@
+/* ---------------------------------------------------------------
+   Your overrides. This file loads last, so anything here wins over
+   the generated Webflow stylesheet. Edit freely.
+   --------------------------------------------------------------- */
+
+/* The "Made in Webflow" badge is injected by the Webflow runtime on
+   webflow.io subdomains. Webflow's own code export omits it, so it is
+   hidden here. Delete this rule to show it again. */
+.w-webflow-badge {
+  display: none !important;
+}

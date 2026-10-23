@@ -1,0 +1,26 @@
+# Optional: serve /about instead of /about.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1.html [L]
+
+ErrorDocument 404 /404.html
+
+# Long-lived caching for fingerprinted assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType video/mp4               "access plus 1 year"
+  ExpiresByType video/webm              "access plus 1 year"
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
