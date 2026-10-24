@@ -258,12 +258,12 @@ already labelled "menu"), and the splash thumbnails and licensing images on the 
 template pages. An empty `alt` is the correct value for decoration: it tells a screen
 reader to skip the image rather than read out a filename.
 
-### Two things found and left alone
+### Found while in here
 
-- **The Producer page has two navbars**, one stacked on the other — two logos, two menu
-  buttons, two `<nav>` landmarks. This is how the page is built on the live Webflow
-  site, not something the export introduced; it was verified against the live HTML.
-  Removing one is a structural change worth making deliberately.
+- **The Producer page had two navbars** stacked on each other — two logos, two menu
+  buttons, two `<nav>` landmarks, so a screen reader announced the navigation twice.
+  The two were byte-identical and adjacent, and the second has been removed. This is
+  still how the page is built on the live Webflow site.
 - **`contact-a.html` shows `+91 8210131800` but its tap-to-call link dials
   `+91 2235304819`.** Both numbers appear on the page. That is also how the live site
   is, and which number should ring is not something to guess at.
