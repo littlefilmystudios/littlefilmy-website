@@ -235,6 +235,39 @@ along with it and keeps the text readable over bright footage. The hover interac
 still runs; it just animates to where the tile already sits. Delete the block at the
 end of `custom.css` to go back to hover-only.
 
+## Navigation and image descriptions
+
+**The duplicate Blog link is gone.** The navigation carried both "Producer" and "Blog"
+pointing at the same `producer.html`, and there is no blog. The nav is now
+Commercials · Animation · About · Producer · Contact.
+
+**32 images now describe themselves.** Each was opened and identified rather than
+guessed at from its filename — four had opaque names like
+`MV5BZjI1ZjM3NjUt…` and `476473042_1165907854907087_…` and turned out to be *Kill*,
+*Pagglait*, *Divine Trails* and *Mega Banks of India*.
+
+| | |
+|---|---|
+| Logo (19, every page) | `Little Filmy` |
+| Producer portrait | `Jayant Raj` |
+| Portfolio posters (11) | `Kill`, `Pagglait`, `Finding Nabi`, `Breaking the Feed`, `Darkness Visible`, `Guddu - Shuruaat Ka Twist`, `Plus Minus`, `Irada`, `Dear Dad` film posters, plus the two Discovery India titles |
+| About page still | `Still from a Little Filmy production` |
+
+The other 37 images keep `alt=""` **on purpose** — the hamburger icon (its button is
+already labelled "menu"), and the splash thumbnails and licensing images on the unused
+template pages. An empty `alt` is the correct value for decoration: it tells a screen
+reader to skip the image rather than read out a filename.
+
+### Two things found and left alone
+
+- **The Producer page has two navbars**, one stacked on the other — two logos, two menu
+  buttons, two `<nav>` landmarks. This is how the page is built on the live Webflow
+  site, not something the export introduced; it was verified against the live HTML.
+  Removing one is a structural change worth making deliberately.
+- **`contact-a.html` shows `+91 8210131800` but its tap-to-call link dials
+  `+91 2235304819`.** Both numbers appear on the page. That is also how the live site
+  is, and which number should ring is not something to guess at.
+
 ## What changed from the Webflow original
 
 - **Fonts are self-hosted.** The original pulled Playfair Display through Google's
@@ -270,6 +303,8 @@ end of `custom.css` to go back to hover-only.
   corrected — see the sections above.
 - **Background videos load lazily** instead of all at once — see "Video loading".
 - **Project captions no longer wait for a hover** on desktop — see the section above.
+- **The duplicate Blog nav link was removed and 32 images were given alt text** —
+  see "Navigation and image descriptions".
 - Nothing else. Markup, classes, layout and animations are byte-for-byte the original.
 
 ## Editing
