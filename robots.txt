@@ -1,0 +1,19 @@
+# Little Filmy — https://littlefilmy.com
+# Change the Sitemap line (and the domain in sitemap.xml) if the site moves.
+
+User-agent: *
+Allow: /
+
+# Unused pages left over from the Filmax template. They still carry the
+# template's demo content — an Amsterdam address, "Film Director from
+# Amsterdam", and demo projects like Crisp and BOLS — so they should not
+# turn up in search results next to the real work.
+Disallow: /old-home.html
+Disallow: /home-b.html
+Disallow: /home-c.html
+Disallow: /home-d.html
+Disallow: /work/work-c.html
+Disallow: /contact/contact-c.html
+Disallow: /template-info/
+
+Sitemap: https://littlefilmy.com/sitemap.xml

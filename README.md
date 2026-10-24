@@ -40,6 +40,8 @@ assets/js/      jQuery, the Webflow runtime, the lazy-video loader and the
 assets/img/     153 images, including every srcset size
 assets/fonts/   9 woff2 files — THICCCBOI + Playfair Display
 assets/media/   76 background videos (mp4 + webm pairs)
+sitemap.xml     the seven pages worth indexing
+robots.txt      blocks the leftover template pages
 _mirror-manifest.json   every source URL mapped to its local file
 ```
 
@@ -268,6 +270,31 @@ reader to skip the image rather than read out a filename.
   `+91 2235304819`.** Both numbers appear on the page. That is also how the live site
   is, and which number should ring is not something to guess at.
 
+## Language and discoverability
+
+**`<html lang="en">`** is now on all 18 pages. Without it a screen reader falls back to
+the browser's locale and may read English copy with the wrong pronunciation rules.
+
+**The Marathi lines are marked `lang="mr"`** — three of them, the Bajaj RE tile's title
+and its subtitle. They are Marathi, not Hindi, and without the attribute a screen
+reader would attempt them in an English voice.
+
+**`sitemap.xml`** lists the seven pages worth finding: home, Commercials, Animation,
+About, Producer and the two Contact pages.
+
+**`robots.txt`** allows everything else and blocks the pages that still carry Filmax
+demo content — `old-home`, `home-b/c/d`, `work-c`, `contact-c` and `template-info/`.
+They would otherwise be indexable, and an Amsterdam address or a "Film Director from
+Amsterdam" headline turning up in a search next to the real work does more harm than
+the pages are worth. Deleting those files outright would also do the job.
+
+Both files hard-code `https://littlefilmy.com`, the same assumption as `og:image`.
+Change the domain in `sitemap.xml` and in the `Sitemap:` line of `robots.txt` if the
+site is hosted elsewhere — Google ignores a sitemap whose URLs are on another host.
+
+Not added: `<link rel="canonical">`. It only matters once the real domain is settled
+and you know whether you are serving `/about` or `/about.html` as the canonical form.
+
 ## What changed from the Webflow original
 
 - **Fonts are self-hosted.** The original pulled Playfair Display through Google's
@@ -305,6 +332,8 @@ reader to skip the image rather than read out a filename.
 - **Project captions no longer wait for a hover** on desktop — see the section above.
 - **The duplicate Blog nav link was removed and 32 images were given alt text** —
   see "Navigation and image descriptions".
+- **`lang` attributes, `sitemap.xml` and `robots.txt` were added** — see
+  "Language and discoverability".
 - Nothing else. Markup, classes, layout and animations are byte-for-byte the original.
 
 ## Editing
