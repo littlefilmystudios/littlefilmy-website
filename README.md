@@ -129,6 +129,45 @@ lists email, phone and Instagram. This only matters if you link to contact-b.
   the page). That is how your live site is; I left it alone rather than guess which
   one is right.
 
+## Titles, descriptions and share cards
+
+Every page had the Filmax template's title and description — `About - Filmax -
+Webflow HTML website template` and so on — on all 17 pages except the homepage.
+Those are rewritten with real titles and descriptions, and the matching
+`og:`/`twitter:` tags are set so link previews read correctly.
+
+**The share image uses an absolute URL, which means it is tied to a domain:**
+
+```
+https://littlefilmy.com/assets/img/684677cb1062c2bf7ac2841e_Little-Filmy-61cbd624.jpg
+```
+
+`littlefilmy.com` is an assumption. Open Graph requires an absolute URL — a relative
+path produces no preview image at all — so a domain had to be chosen. If you host
+somewhere else, change it everywhere in one command from inside this folder:
+
+```bash
+grep -rl 'https://littlefilmy.com' . --include='*.html' | xargs sed -i '' 's|https://littlefilmy\.com|https://your-domain.com|g'
+```
+
+That updates `og:image` and `og:url` on all 18 pages. Until the domain matches where
+the site is actually served, link previews on WhatsApp, LinkedIn and Facebook will not
+show the image.
+
+## Copy corrections
+
+Typos carried over from the live site, fixed here:
+
+| Page | was | now |
+|---|---|---|
+| producer | Balalji Films | Balaji Films |
+| producer | "has don several other hats" | "has donned several other hats" |
+| index | Short flm | Short Film |
+| work-b (x6) | wEB sHOW tITLE dESIGN | Web Show Title Design |
+| index, work-a (x4) | Religare health Insurance | Religare Health Insurance |
+
+All of these are still present on the live Webflow site.
+
 ## What changed from the Webflow original
 
 - **Fonts are self-hosted.** The original pulled Playfair Display through Google's
@@ -160,6 +199,8 @@ lists email, phone and Instagram. This only matters if you link to contact-b.
   rather have five entries than six.
 
   Your live Webflow site still has all of the demo values above.
+- **Page titles, meta descriptions and social tags were rewritten** and five typos
+  corrected — see the two sections above.
 - Nothing else. Markup, classes, layout and animations are byte-for-byte the original.
 
 ## Editing
