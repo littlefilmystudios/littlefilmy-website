@@ -9,3 +9,30 @@
 .w-webflow-badge {
   display: none !important;
 }
+
+/* ---------------------------------------------------------------------------
+   Project titles always visible on desktop
+   ---------------------------------------------------------------------------
+   Webflow's hover interaction keeps each tile's caption at opacity 0 with its
+   two headings translated out of an overflow:hidden strip, so on desktop a
+   visitor scrolled past fourteen unlabelled clips and only learned that the
+   work was for Bajaj, Sony, Swiggy or Parachute if they happened to mouse over
+   a tile. Phones already show the captions — Webflow disables the interaction
+   below 992px — so this just brings the desktop in line.
+
+   The dark gradient behind the caption is part of .block-project already, so
+   it comes along and keeps the text legible over bright footage.
+
+   The interaction still runs on hover; it simply animates to where the tile
+   already is. Delete this block to go back to hover-only.
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 992px) {
+  .block-project {
+    opacity: 1 !important;
+  }
+
+  .block-project .heading-project,
+  .block-project .subheading-project {
+    transform: none !important;
+  }
+}

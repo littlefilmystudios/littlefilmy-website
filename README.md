@@ -216,6 +216,25 @@ ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow -vf scale=1280:-2 -an -mov
 `-an` drops the audio track, which a muted background video never uses. The same is
 worth doing to the other clips over ~2 MB.
 
+## Project captions on desktop
+
+Webflow's hover interaction held each overlay caption at `opacity: 0` with its two
+headings translated out of an `overflow: hidden` strip, so on a desktop a visitor
+scrolled past fourteen unlabelled clips and only discovered the work was for Bajaj,
+Sony, Swiggy or Parachute if they happened to mouse over a tile. Phones already showed
+the captions — Webflow turns the interaction off below 992px — so the rule in
+`assets/css/custom.css` just brings the desktop in line.
+
+44 captions across four pages are affected: the home page (14), Home Layout B (12),
+Home Layout D (12) and Animation (6). Commercials and Home Layout C use a different
+component that already prints its caption underneath the tile, so they were never
+hover-only and are untouched.
+
+The dark gradient behind the caption is part of `.block-project` already, so it comes
+along with it and keeps the text readable over bright footage. The hover interaction
+still runs; it just animates to where the tile already sits. Delete the block at the
+end of `custom.css` to go back to hover-only.
+
 ## What changed from the Webflow original
 
 - **Fonts are self-hosted.** The original pulled Playfair Display through Google's
@@ -250,6 +269,7 @@ worth doing to the other clips over ~2 MB.
 - **Page titles, meta descriptions and social tags were rewritten** and five typos
   corrected — see the sections above.
 - **Background videos load lazily** instead of all at once — see "Video loading".
+- **Project captions no longer wait for a hover** on desktop — see the section above.
 - Nothing else. Markup, classes, layout and animations are byte-for-byte the original.
 
 ## Editing
