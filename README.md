@@ -35,7 +35,8 @@ published. Delete them if you don't want them public.
 
 ```
 assets/css/     Webflow stylesheet, self-hosted Google Fonts, your custom.css
-assets/js/      jQuery, the Webflow runtime, and the contact-form handler
+assets/js/      jQuery, the Webflow runtime, the lazy-video loader and the
+                contact-form handler
 assets/img/     153 images, including every srcset size
 assets/fonts/   9 woff2 files — THICCCBOI + Playfair Display
 assets/media/   76 background videos (mp4 + webm pairs)
@@ -168,6 +169,53 @@ Typos carried over from the live site, fixed here:
 
 All of these are still present on the live Webflow site.
 
+## Video loading
+
+Webflow gives every background video `autoplay` and a real `<source src>`, so a page
+fetched all of its clips at once — the homepage pulled **35 MB and started 14
+simultaneous video decodes** before the visitor had scrolled a pixel.
+
+Each `<source>` now carries `data-src`, the `<video>` has `preload="none"`, and
+`assets/js/lazy-video.js` loads a clip only when its tile comes within 200px of the
+viewport. Tiles that scroll away are paused, and everything pauses when the tab is
+hidden.
+
+| Page | first load before | first load now |
+|---|---|---|
+| Home (14 tiles) | 35.3 MB | **9.0 MB** |
+| Commercials (16 tiles) | 38.8 MB | **2.5 MB** |
+| Animation (6 tiles) | 17.0 MB | **3.0 MB** |
+
+At most five clips play at once now instead of fourteen, which matters as much for
+phone battery and CPU as it does for bandwidth. Scrolling the whole homepage still
+ends up fetching ~30 MB, as it must — the saving is for the majority who never
+scroll that far.
+
+Each tile keeps its poster frame as a CSS background image, so nothing looks
+different before a clip arrives, and the Vimeo lightbox is untouched.
+
+Visitors who have asked for reduced motion, or who have Data Saver on, get poster
+frames only and no autoplay; the tile's link still opens the full film.
+
+### The one file still worth fixing
+
+The homepage's remaining 9 MB is almost entirely its first tile:
+
+```
+BAJAJ-RE_for-web-transcode.mp4   8.3 MB   15.2s   1280x720   4.6 Mbps
+```
+
+4.6 Mbps is roughly four times what a silent looping background clip needs. Re-encoded
+at ~1.2 Mbps it would be about 2 MB and look the same at tile size, taking the homepage
+to roughly **2.7 MB**. `ffmpeg` is not installed on this machine, but the command is:
+
+```bash
+ffmpeg -i input.mp4 -c:v libx264 -crf 28 -preset slow -vf scale=1280:-2 -an -movflags +faststart output.mp4
+```
+
+`-an` drops the audio track, which a muted background video never uses. The same is
+worth doing to the other clips over ~2 MB.
+
 ## What changed from the Webflow original
 
 - **Fonts are self-hosted.** The original pulled Playfair Display through Google's
@@ -200,7 +248,8 @@ All of these are still present on the live Webflow site.
 
   Your live Webflow site still has all of the demo values above.
 - **Page titles, meta descriptions and social tags were rewritten** and five typos
-  corrected — see the two sections above.
+  corrected — see the sections above.
+- **Background videos load lazily** instead of all at once — see "Video loading".
 - Nothing else. Markup, classes, layout and animations are byte-for-byte the original.
 
 ## Editing
