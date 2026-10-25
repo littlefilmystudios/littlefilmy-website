@@ -97,11 +97,6 @@
   overflow: visible;
 }
 
-/* a consistent gap between every poster and its caption */
-.text-block-4 {
-  margin-top: 16px;
-  margin-bottom: 0;
-}
 
 @media screen and (max-width: 991px) {
   .container-4 img,
@@ -113,4 +108,62 @@
   .container-4 img,
   .container-4-copy > img,
   .image-6-copy { height: 220px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Page top spacing
+   ---------------------------------------------------------------------------
+   The navbar is fixed and 105px tall, and .section-top carried 240px of top
+   padding to clear it - far more than needed, leaving a slab of black on every
+   page. On the producer page .section-top has no heading in it at all, so it
+   was 258px of nothing before the content began.
+   --------------------------------------------------------------------------- */
+.section-top {
+  padding-top: 150px;
+}
+
+/* no heading inside it: just clear the fixed navbar and stop */
+.section-top:empty {
+  padding-top: 110px;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .section-top { padding-top: 120px; }
+  .section-top:empty { padding-top: 80px; }
+}
+
+/* ---------------------------------------------------------------------------
+   Portfolio captions belong to the poster above them
+   ---------------------------------------------------------------------------
+   With no space beneath a caption, it sat hard against the next poster and
+   read as that one's label - "EXECUTIVE PRODUCER / Discovery India" appeared
+   to belong to the Irada poster below it. A small gap above and a large one
+   below groups each caption with its own image.
+   --------------------------------------------------------------------------- */
+.text-block-4 {
+  margin-top: 12px;
+  margin-bottom: 64px;
+}
+
+/* ---------------------------------------------------------------------------
+   Navigation: show which page you are on, and respond to the pointer
+   ---------------------------------------------------------------------------
+   Webflow marks the current page with .w--current but styled it identically to
+   every other link, so nothing indicated where you were.
+   --------------------------------------------------------------------------- */
+.nav-link {
+  transition: opacity .2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  opacity: .55;
+}
+
+.nav-link.w--current {
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
 }
