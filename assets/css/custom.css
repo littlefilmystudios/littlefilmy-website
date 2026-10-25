@@ -36,3 +36,28 @@
     transform: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Producer page heading
+   ---------------------------------------------------------------------------
+   The name and role sit in an h2, which the theme sets at 48px on desktop and
+   steps down to 42 / 35 / 30 at its breakpoints. Scaled down about a fifth at
+   each step, keeping the same ladder. The role line is a <sub>, so it stays at
+   75% of whichever size applies. Adjust the four numbers to taste.
+   --------------------------------------------------------------------------- */
+.heading-4 {
+  font-size: 38px;
+  line-height: 112%;
+}
+
+@media screen and (max-width: 991px) {
+  .heading-4 { font-size: 34px; }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-4 { font-size: 29px; }
+}
+
+@media screen and (max-width: 479px) {
+  .heading-4 { font-size: 25px; }
+}
