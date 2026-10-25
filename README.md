@@ -39,7 +39,7 @@ about.html              about the studio
 work/commercials.html        commercials and digital films
 work/animation.html        animation and title design
 producer.html           Jayant Raj — director and executive producer
-contact/contact-a.html  contact details
+/contact  contact details
 contact/contact-b.html  contact form
 
 assets/css/             stylesheet, self-hosted fonts, custom overrides

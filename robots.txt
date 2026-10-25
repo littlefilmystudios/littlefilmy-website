@@ -8,12 +8,12 @@ Allow: /
 # template's demo content — an Amsterdam address, "Film Director from
 # Amsterdam", and demo projects like Crisp and BOLS — so they should not
 # turn up in search results next to the real work.
-Disallow: /old-home.html
-Disallow: /home-b.html
-Disallow: /home-c.html
-Disallow: /home-d.html
-Disallow: /work/selected-work.html
-Disallow: /contact/contact-c.html
+Disallow: /old-home
+Disallow: /home-b
+Disallow: /home-c
+Disallow: /home-d
+Disallow: /work/selected-work
+Disallow: /contact/contact-c
 Disallow: /template-info/
 
 Sitemap: https://littlefilmy.com/sitemap.xml
