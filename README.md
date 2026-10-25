@@ -10,25 +10,26 @@ films.
 
 ## Deploying
 
-**Shared hosting / cPanel / FTP** — upload the contents of this repository (not the
-folder itself) into `public_html/`. `index.html` becomes the homepage.
+The site is hosted on **Bluehost** shared hosting at
+[littlefilmy.com](https://littlefilmy.com).
+
+Upload the contents of this repository — not the folder itself — into
+`public_html/`. `index.html` becomes the homepage. The quickest route through
+cPanel is to upload a zip of the repository into `public_html/` and use
+**Extract**, since there are around 275 files.
 
 ```bash
-rsync -av --delete ./ user@yourhost:~/public_html/
+# or over SSH/rsync, from a clone of this repository
+rsync -av --delete --exclude '.git' ./ user@littlefilmy.com:~/public_html/
 ```
 
-**Netlify, Cloudflare Pages, GitHub Pages** — point the deploy at this repository.
-No build command; the publish directory is the repository root.
+`.htaccess` does the rest: forces HTTPS, redirects `www` to the apex, serves
+`/about` as well as `/about.html`, sets cache lifetimes and gzip, and points 404s
+at the branded error page. It needs `mod_rewrite`, `mod_expires` and `mod_deflate`,
+all of which Bluehost has on by default.
 
-**Vercel** — `vercel --prod` from the repository root.
-
-An `.htaccess` is included for Apache: it serves `/about` as well as `/about.html`,
-sets long cache lifetimes for the fingerprinted assets, and enables gzip. For nginx:
-
-```nginx
-try_files $uri $uri.html $uri/ =404;
-error_page 404 /404.html;
-```
+**Other hosts.** Netlify, Cloudflare Pages and Vercel all take this repository
+directly with no build command and the repository root as the publish directory.
 
 ## Layout
 
@@ -61,8 +62,8 @@ Open Graph requires and which Google needs in a sitemap. They currently point at
 the Vercel deployment. When a custom domain is attached, change them everywhere:
 
 ```bash
-grep -rl 'https://littlefilmy-website.vercel.app' . --include='*.html' --include='*.xml' \
-  | xargs sed -i '' 's|https://littlefilmy-website\.vercel\.app|https://your-domain.com|g'
+grep -rl 'https://littlefilmy.com' . --include='*.html' --include='*.xml' \
+  | xargs sed -i '' 's|https://littlefilmy\.com|https://your-domain.com|g'
 ```
 
 Also update the `Sitemap:` line in `robots.txt`.

@@ -1,4 +1,4 @@
-# Little Filmy — https://littlefilmy-website.vercel.app
+# Little Filmy — https://littlefilmy.com
 # Change the Sitemap line (and the domain in sitemap.xml) if the site moves.
 
 User-agent: *
@@ -16,4 +16,4 @@ Disallow: /work/work-c.html
 Disallow: /contact/contact-c.html
 Disallow: /template-info/
 
-Sitemap: https://littlefilmy-website.vercel.app/sitemap.xml
+Sitemap: https://littlefilmy.com/sitemap.xml

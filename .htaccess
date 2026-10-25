@@ -1,12 +1,24 @@
-# Optional: serve /about instead of /about.html
+# Little Filmy — Apache / Bluehost configuration
+
 RewriteEngine On
+
+# 1. Force HTTPS. Bluehost serves both; without this the site is reachable
+#    over plain http and browsers will flag it.
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 2. One canonical hostname: www -> apex. Serving both is duplicate content.
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# 3. Serve /about as well as /about.html
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ $1.html [L]
 
 ErrorDocument 404 /404.html
 
-# Long-lived caching for fingerprinted assets
+# Long cache lifetimes for the fingerprinted assets; HTML always revalidated.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css                "access plus 1 year"
@@ -15,12 +27,23 @@ ErrorDocument 404 /404.html
   ExpiresByType image/jpeg              "access plus 1 year"
   ExpiresByType image/svg+xml           "access plus 1 year"
   ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
   ExpiresByType font/woff2              "access plus 1 year"
   ExpiresByType video/mp4               "access plus 1 year"
   ExpiresByType video/webm              "access plus 1 year"
   ExpiresByType text/html               "access plus 0 seconds"
 </IfModule>
 
+# Compress text. Video and images are already compressed — leave them alone.
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/xml image/svg+xml text/plain
+</IfModule>
+
+# Make sure the media types are right even if the server's defaults are not.
+<IfModule mod_mime.c>
+  AddType video/mp4   .mp4
+  AddType video/webm  .webm
+  AddType font/woff2  .woff2
+  AddType image/webp  .webp
+  AddType application/xml .xml
 </IfModule>
