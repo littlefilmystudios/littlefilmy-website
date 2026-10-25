@@ -3,47 +3,47 @@
   Pages Little Filmy wants found. The unused Filmax template pages
   (old-home, home-b/c/d, work-c, template-info) are left out on purpose and
   also blocked in robots.txt. Change the domain here and in robots.txt if the
-  site is hosted somewhere other than littlefilmy.com.
+  site moves to its own domain.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://littlefilmy.com/</loc>
+    <loc>https://littlefilmy-website.vercel.app/</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/work/work-a.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/work/work-a.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/work/work-b.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/work/work-b.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/about.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/about.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/producer.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/producer.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/contact/contact-a.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/contact/contact-a.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://littlefilmy.com/contact/contact-b.html</loc>
+    <loc>https://littlefilmy-website.vercel.app/contact/contact-b.html</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

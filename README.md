@@ -1,4 +1,4 @@
-# littlefilmy.com
+# Little Filmy — website
 
 The Little Filmy website as plain HTML, CSS and JavaScript. No build step, no
 framework, no server-side code — upload the contents of this repository to any
@@ -57,12 +57,12 @@ subfolder, or opened directly from disk.
 ## Two things to set before going live
 
 **1. The domain.** `og:image`, `og:url` and `sitemap.xml` use absolute URLs, which
-Open Graph requires and which Google needs in a sitemap. They currently say
-`https://littlefilmy.com`. If you host elsewhere, change it everywhere:
+Open Graph requires and which Google needs in a sitemap. They currently point at
+the Vercel deployment. When a custom domain is attached, change them everywhere:
 
 ```bash
-grep -rl 'https://littlefilmy.com' . --include='*.html' --include='*.xml' \
-  | xargs sed -i '' 's|https://littlefilmy\.com|https://your-domain.com|g'
+grep -rl 'https://littlefilmy-website.vercel.app' . --include='*.html' --include='*.xml' \
+  | xargs sed -i '' 's|https://littlefilmy-website\.vercel\.app|https://your-domain.com|g'
 ```
 
 Also update the `Sitemap:` line in `robots.txt`.
