@@ -36,8 +36,8 @@ directly with no build command and the repository root as the publish directory.
 ```
 index.html              home
 about.html              about the studio
-work/work-a.html        commercials and digital films
-work/work-b.html        animation and title design
+work/commercials.html        commercials and digital films
+work/animation.html        animation and title design
 producer.html           Jayant Raj — director and executive producer
 contact/contact-a.html  contact details
 contact/contact-b.html  contact form

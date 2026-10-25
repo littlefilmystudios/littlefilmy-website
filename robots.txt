@@ -12,7 +12,7 @@ Disallow: /old-home.html
 Disallow: /home-b.html
 Disallow: /home-c.html
 Disallow: /home-d.html
-Disallow: /work/work-c.html
+Disallow: /work/selected-work.html
 Disallow: /contact/contact-c.html
 Disallow: /template-info/
 

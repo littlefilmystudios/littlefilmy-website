@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/work/work-a.html", "destination": "/work/commercials.html",   "permanent": true },
+    { "source": "/work/work-b.html", "destination": "/work/animation.html",     "permanent": true },
+    { "source": "/work/work-c.html", "destination": "/work/selected-work.html", "permanent": true }
+  ]
+}
