@@ -61,3 +61,56 @@
 @media screen and (max-width: 479px) {
   .heading-4 { font-size: 25px; }
 }
+
+/* ---------------------------------------------------------------------------
+   Producer portfolio posters
+   ---------------------------------------------------------------------------
+   Two faults came from the same place. The first seven posters sit inside a
+   .div-block and carry .image-6-copy; the last four have neither, so they
+   rendered 478px wide against the others' 179-247px. And because every poster
+   is a different height, the captions ended up anywhere from 2px to 116px
+   below their image.
+
+   One uniform box fixes both: every poster the same height, scaled to fit
+   rather than cropped (they are posters - cropping would cut off titles),
+   centred in its column, with the caption a fixed distance underneath.
+
+   These five classes appear only on producer.html, so this affects nothing
+   else. Change the height below to make the row of posters larger or smaller.
+   --------------------------------------------------------------------------- */
+.container-4 img,
+.container-4-copy > img,
+.image-6-copy {
+  display: block;
+  width: auto;
+  height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  padding-bottom: 0;
+}
+
+/* the wrapper clipped the first seven to 75% of a fixed row; the images now
+   size themselves, so it no longer needs to crop */
+.div-block {
+  height: auto;
+  overflow: visible;
+}
+
+/* a consistent gap between every poster and its caption */
+.text-block-4 {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .container-4 img,
+  .container-4-copy > img,
+  .image-6-copy { height: 260px; }
+}
+
+@media screen and (max-width: 767px) {
+  .container-4 img,
+  .container-4-copy > img,
+  .image-6-copy { height: 220px; }
+}
