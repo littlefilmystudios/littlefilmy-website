@@ -2,8 +2,18 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/work/work-a",
+      "destination": "/work/commercials",
+      "permanent": true
+    },
+    {
       "source": "/work/work-a.html",
       "destination": "/work/commercials",
+      "permanent": true
+    },
+    {
+      "source": "/work/work-b",
+      "destination": "/work/animation",
       "permanent": true
     },
     {
@@ -12,17 +22,22 @@
       "permanent": true
     },
     {
+      "source": "/work/work-c",
+      "destination": "/work/selected-work",
+      "permanent": true
+    },
+    {
       "source": "/work/work-c.html",
       "destination": "/work/selected-work",
       "permanent": true
     },
     {
-      "source": "/contact/contact-a.html",
+      "source": "/contact/contact-a",
       "destination": "/contact",
       "permanent": true
     },
     {
-      "source": "/contact/contact-a",
+      "source": "/contact/contact-a.html",
       "destination": "/contact",
       "permanent": true
     }
