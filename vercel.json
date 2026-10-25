@@ -40,6 +40,16 @@
       "source": "/contact/contact-a.html",
       "destination": "/contact",
       "permanent": true
+    },
+    {
+      "source": "/contact/contact-b",
+      "destination": "/contact/message",
+      "permanent": true
+    },
+    {
+      "source": "/contact/contact-b.html",
+      "destination": "/contact/message",
+      "permanent": true
     }
   ],
   "cleanUrls": true,

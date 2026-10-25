@@ -40,7 +40,7 @@ work/commercials.html        commercials and digital films
 work/animation.html        animation and title design
 producer.html           Jayant Raj — director and executive producer
 /contact  contact details
-contact/contact-b.html  contact form
+contact/message.html  contact form
 
 assets/css/             stylesheet, self-hosted fonts, custom overrides
 assets/js/              jQuery, the Webflow runtime, lazy video, contact form
@@ -68,7 +68,7 @@ grep -rl 'https://littlefilmy.com' . --include='*.html' --include='*.xml' \
 
 Also update the `Sitemap:` line in `robots.txt`.
 
-**2. The contact form.** `contact/contact-b.html` posts to
+**2. The contact form.** `contact/message.html` posts to
 [Formspree](https://formspree.io). Create a form there and replace both
 occurrences of `YOUR_FORM_ID` on the `<form id="email-form"` line:
 
