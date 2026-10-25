@@ -144,6 +144,18 @@
 .text-block-4 {
   margin-top: 12px;
   margin-bottom: 64px;
+  /* these inherited the 20px body size, which made the role and company
+     wrap to three lines and compete with the posters. */
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media screen and (max-width: 991px) {
+  .text-block-4 { font-size: 14px; }
+}
+
+@media screen and (max-width: 479px) {
+  .text-block-4 { font-size: 13px; }
 }
 
 /* ---------------------------------------------------------------------------
