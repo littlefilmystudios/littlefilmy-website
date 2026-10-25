@@ -167,3 +167,43 @@
   text-decoration-thickness: 2px;
   text-underline-offset: 7px;
 }
+
+/* ---------------------------------------------------------------------------
+   Last four posters: one row, not two
+   ---------------------------------------------------------------------------
+   These sat in two separate two-column grids, so four posters took two rows
+   while the seven above them ran four and three across. The two grids are now
+   merged in the markup and laid out four across, matching the row above. The
+   80px gaps were sized for two columns and are too wide for four.
+   --------------------------------------------------------------------------- */
+.container4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: none;
+  column-gap: 40px;
+  row-gap: 48px;
+}
+
+/* Two of the four are pinned to a named area, "Area-2", from the two-column
+   layout. With the areas cleared that name no longer resolves, so the browser
+   invented implicit tracks and scattered them across six columns. !important
+   is needed here: the other two are placed by #w-node-... id rules, which
+   outrank any class selector. */
+.container4 > * {
+  grid-area: auto !important;
+}
+
+/* Webflow's .w-container carries ::before/::after clearfix boxes. In a grid
+   those count as items, so they took the first cells and pushed the posters
+   along by one - three on row one and the fourth wrapped underneath. */
+.container4::before,
+.container4::after {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .container4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 479px) {
+  .container4 { grid-template-columns: 1fr; }
+}
