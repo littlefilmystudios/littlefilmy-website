@@ -40,10 +40,9 @@ work/commercials.html        commercials and digital films
 work/animation.html        animation and title design
 producer.html           Jayant Raj — director and executive producer
 /contact  contact details
-contact/message.html  contact form
 
 assets/css/             stylesheet, self-hosted fonts, custom overrides
-assets/js/              jQuery, the Webflow runtime, lazy video, contact form
+assets/js/              jQuery, the Webflow runtime, lazy video
 assets/img/             images, including every srcset size
 assets/fonts/           woff2 files — THICCCBOI and Playfair Display
 assets/media/           background videos (mp4 + webm pairs)
@@ -55,9 +54,9 @@ _mirror-manifest.json   maps each local file to the URL it came from
 Every reference is relative, so the site works from a domain root, from a
 subfolder, or opened directly from disk.
 
-## Two things to set before going live
+## One thing to set before going live
 
-**1. The domain.** `og:image`, `og:url` and `sitemap.xml` use absolute URLs, which
+**The domain.** `og:image`, `og:url` and `sitemap.xml` use absolute URLs, which
 Open Graph requires and which Google needs in a sitemap. They currently point at
 the Vercel deployment. When a custom domain is attached, change them everywhere:
 
@@ -67,19 +66,6 @@ grep -rl 'https://littlefilmy.com' . --include='*.html' --include='*.xml' \
 ```
 
 Also update the `Sitemap:` line in `robots.txt`.
-
-**2. The contact form.** `contact/message.html` posts to
-[Formspree](https://formspree.io). Create a form there and replace both
-occurrences of `YOUR_FORM_ID` on the `<form id="email-form"` line:
-
-```html
-action="https://formspree.io/f/mwpevknb" data-formspree="mwpevknb"
-```
-
-`assets/js/contact-form.js` handles the rest, reusing the page's existing success
-and error blocks. Until the ID is set, the form shows its error message and
-explains why in the browser console. The `action` attribute is the same endpoint,
-so the form still works without JavaScript.
 
 ## Notes
 
