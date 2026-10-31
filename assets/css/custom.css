@@ -228,10 +228,8 @@
 /* About's subsections sit in a grid row fixed at 438px. Copy longer than that
    overflowed the row and crossed into the Services section below, so let the
    row grow to fit. align-items:start keeps the Producer photo level with the
-   top of its bio; the italic labels opt back into Webflow's centring so each
-   one sits halfway down the text it names. */
+   top of its bio; About opts back into Webflow's centring further down. */
 .grid-subsection { grid-template-rows: minmax(438px, auto); align-items: start; }
-.heading-subsection { align-self: center; }
 
 /* The 208px gap under the intro copy is a margin on the copy itself, so it
    counts towards the grid row and left the centred label sitting half that —
@@ -247,6 +245,12 @@
      Match the two and it centres in the band. Below 992px Webflow already
      pads both sides equally. */
   .grid-subsection--about:not(.grid-subsection--intro) { padding-bottom: 145px; }
+
+  /* Both halves centre against each other. It matters when the content is
+     shorter than the 438px minimum row — the six-line Services list is — since
+     the label would otherwise centre in the row while the list sat at the top
+     of it. Scoped to About so Producer keeps its top-aligned photo. */
+  .grid-subsection--about > * { align-self: center; }
 }
 
 /* Below 992px Webflow declares a single column but leaves the two-cell area
