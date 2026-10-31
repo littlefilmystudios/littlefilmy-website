@@ -48,6 +48,12 @@
 .heading-4 {
   font-size: 38px;
   line-height: 112%;
+  /* Webflow gives this one a -24px right margin, so the h2 reached 24px past
+     its column. Above 1440px the page gutter absorbed it; at every width below
+     that it ran past the right edge of the screen and gave the Producer page a
+     few pixels of sideways scroll. The text is left-aligned, so dropping it
+     only moves where the line would wrap. */
+  margin-right: 0;
 }
 
 @media screen and (max-width: 991px) {
@@ -255,16 +261,27 @@
 
 /* Below 992px Webflow declares a single column but leaves the two-cell area
    string "Area Area-2" in place, so the browser invents a second track and the
-   About copy renders in a ~190px column beside the label. Clear the areas and
-   let the label stack above the copy. Scoped to About: Producer's grids place
-   real content into Area-2 and must keep their columns. */
+   content renders in a ~185px column beside an empty one — About's copy next
+   to its label, Producer's bio next to its photo. Clear the areas so the two
+   stack. Every direct child of these grids is auto-placed; the Area-2
+   placements on Producer are all further down, inside .container-3 / -4 and
+   .div-block, and are untouched by this. */
 @media screen and (max-width: 991px) {
-  .grid-subsection--about {
+  .grid-subsection {
     grid-template-areas: none;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-  .grid-subsection--about > * { grid-area: auto; }
+
+  /* Webflow nudges the Producer portrait into place with 142px of left padding
+     on the img itself, 41px to its right and -139px on top. That works in a
+     700px desktop column; in a stacked one it leaves a black band down the
+     left of the photo and drags it up under the heading. */
+  .image-8 {
+    margin-top: 0;
+    margin-right: 0;
+    padding-left: 0;
+  }
 }
 
 /* ---------------------------------------------------------------------------
