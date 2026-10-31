@@ -23,12 +23,12 @@
     },
     {
       "source": "/work/work-c",
-      "destination": "/work/selected-work",
+      "destination": "/work/commercials",
       "permanent": true
     },
     {
       "source": "/work/work-c.html",
-      "destination": "/work/selected-work",
+      "destination": "/work/commercials",
       "permanent": true
     },
     {

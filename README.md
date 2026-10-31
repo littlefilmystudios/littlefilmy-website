@@ -83,9 +83,9 @@ Also update the `Sitemap:` line in `robots.txt`.
   ```
 - **Editing.** The main stylesheet is minified and machine-generated. Put changes in
   `assets/css/custom.css`, which loads last on every page.
-- **Unlisted pages.** `old-home`, `home-b/c/d`, `work-c` and `template-info/` are
-  unused layout variants, excluded from the sitemap and blocked in `robots.txt`.
-  They can be deleted.
+- **Unlisted pages.** `old-home`, `home-b/c/d` and `contact-c` are unused layout
+  variants, excluded from the sitemap and blocked in `robots.txt`. They can be
+  deleted.
 
 ## Credits
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Pages Little Filmy wants found. The unused Filmax template pages
-  (old-home, home-b/c/d, work-c, template-info) are left out on purpose and
-  also blocked in robots.txt. Change the domain here and in robots.txt if the
+  (old-home, home-b/c/d, contact-c) are left out on purpose and also blocked
+  in robots.txt. Change the domain here and in robots.txt if the
   site moves to its own domain.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

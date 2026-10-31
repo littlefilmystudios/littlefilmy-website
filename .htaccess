@@ -25,7 +25,7 @@ RewriteRule ^(.*)$ $1.html [L]
 # Keep the old addresses working for anything already linking to them.
 Redirect 301 /work/work-a.html /work/commercials
 Redirect 301 /work/work-b.html /work/animation
-Redirect 301 /work/work-c.html /work/selected-work
+Redirect 301 /work/work-c.html /work/commercials
 Redirect 301 /contact/contact-a.html /contact/
 
 ErrorDocument 404 /404.html

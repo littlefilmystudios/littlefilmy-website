@@ -12,8 +12,6 @@ Disallow: /old-home
 Disallow: /home-b
 Disallow: /home-c
 Disallow: /home-d
-Disallow: /work/selected-work
 Disallow: /contact/contact-c
-Disallow: /template-info/
 
 Sitemap: https://littlefilmy.com/sitemap.xml
