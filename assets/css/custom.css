@@ -225,11 +225,37 @@
 .paragraph-2 { margin-bottom: 18px; }
 .paragraph-2:last-child { margin-bottom: 0; }
 
-/* About's subsections sit in a grid row fixed at 438px with place-items:center.
-   The longer intro copy overflowed that row and crossed into the Services
-   section below. Let the row grow, and top-align the italic label so it stays
-   beside the heading it names instead of floating mid-paragraph. */
+/* About's subsections sit in a grid row fixed at 438px. Copy longer than that
+   overflowed the row and crossed into the Services section below, so let the
+   row grow to fit. align-items:start keeps the Producer photo level with the
+   top of its bio; the italic labels opt back into Webflow's centring so each
+   one sits halfway down the text it names. */
 .grid-subsection { grid-template-rows: minmax(438px, auto); align-items: start; }
+.heading-subsection { align-self: center; }
+
+/* The 208px gap under the intro copy is a margin on the copy itself, so it
+   counts towards the grid row and left the centred label sitting half that —
+   104px — below the middle of the text. Hand the gap to the row instead: the
+   divider stays where it was and the label lines up with the paragraph it
+   names. Two columns only; below 992px the label stacks above the copy. */
+@media screen and (min-width: 992px) {
+  .grid-subsection--intro { padding-bottom: 208px; }
+  .grid-subsection--intro > .subsection.margin--35px { margin-bottom: 0; }
+}
+
+/* Below 992px Webflow declares a single column but leaves the two-cell area
+   string "Area Area-2" in place, so the browser invents a second track and the
+   About copy renders in a ~190px column beside the label. Clear the areas and
+   let the label stack above the copy. Scoped to About: Producer's grids place
+   real content into Area-2 and must keep their columns. */
+@media screen and (max-width: 991px) {
+  .grid-subsection--about {
+    grid-template-areas: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .grid-subsection--about > * { grid-area: auto; }
+}
 
 /* ---------------------------------------------------------------------------
    Films page
