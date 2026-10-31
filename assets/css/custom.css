@@ -394,3 +394,21 @@
     padding-right: 14px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Home hero tagline on small screens
+   ---------------------------------------------------------------------------
+   Webflow hides the tagline below 992px, so phones and tablets got FILM
+   MAKERS from INDIA with nothing beside it. Shown again, in the place it
+   holds on desktop: to the right of FILM, where it wraps to the same four
+   lines. Its size is 1.1vw, which is 4px on a phone, so a 12px floor is what
+   makes it readable; from about 1090px up the vw value is the larger of the
+   two and desktop is untouched. The 1.5vw left margin shrinks to 6px at phone
+   widths, hence the fixed gap.
+   --------------------------------------------------------------------------- */
+.paragraph-hero-a { font-size: max(12px, 1.1vw); }
+
+@media screen and (max-width: 991px) {
+  .paragraph-hero-a { display: inline-block; }
+  .block-paragraph-hero-a { margin-top: 6px; margin-left: 14px; }
+}
