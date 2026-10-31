@@ -325,3 +325,19 @@
   .film-title { font-size: 28px; }
   .film-poster { max-width: 100%; }
 }
+
+/* ---------------------------------------------------------------------------
+   Nav at tablet widths
+   ---------------------------------------------------------------------------
+   Adding Films made six links. Each carries 22px of padding either side, so
+   the bar needs 650px, and between 768px (where Webflow stops collapsing it
+   into the hamburger) and about 830px there is only ~600px to put it in —
+   Contact dropped onto a second line. 14px brings the bar to 554px, which
+   fits from 768px up. Above 991px there is room for the full padding.
+   --------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .nav-link {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
