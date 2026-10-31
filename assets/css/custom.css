@@ -241,6 +241,12 @@
 @media screen and (min-width: 992px) {
   .grid-subsection--intro { padding-bottom: 208px; }
   .grid-subsection--intro > .subsection.margin--35px { margin-bottom: 0; }
+
+  /* Services carries Webflow's 145px of padding above the list and none below,
+     so the block sat on its own divider with all the air stacked on top.
+     Match the two and it centres in the band. Below 992px Webflow already
+     pads both sides equally. */
+  .grid-subsection--about:not(.grid-subsection--intro) { padding-bottom: 145px; }
 }
 
 /* Below 992px Webflow declares a single column but leaves the two-cell area
